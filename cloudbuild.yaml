@@ -1,10 +1,10 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'eu.gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'eu.gcr.io/$PROJECT_ID/helloworld-app:$SHORT_SHA', '.' ]
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment/helloworld-app', 'helloworld-app=gcr.io/$PROJECT_ID/helloworld-app:$SHORT_SHA']
+- name: 'eu.gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/helloworld-app', 'helloworld-app=eu.gcr.io/$PROJECT_ID/helloworld-app:$SHORT_SHA']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=europe-west2'
   - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
 images:
-- 'gcr.io/$PROJECT_ID/helloworld-app'
+- 'eu.gcr.io/$PROJECT_ID/helloworld-app'
